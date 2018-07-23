@@ -57,7 +57,7 @@ cd /gurobi/extract/path/linux64/bin
 
 ```
 
-## Step 3. Application Install
+## Step 3. Install the Application
 
 After all the installation prerequisites are met, you can configure the necessary variables in the `install.sh` script to point to your gurobi and FreeLing installations. Additionally, if FreeLing was installed to a non-default location, the right environment variable must also be set at the top of the install-freeling-json-conf.sh file. These scripts are located on the project root folder.
 
@@ -65,7 +65,7 @@ The `install.sh` script will perform the steps of installation process. The scri
 
 Once the script completes, you have successfully built the project.
 
-## Step 4. Configuration
+## Step 4. Configure the Application
 
 The main entry point of this project is the StandaloneMain class located at `./modelvsdocument/src/main/java/edu/upc/modelvsdocument/StandaloneMain.java`. There are some configuration options that can must set in-code to change the behaviour of the tool. Please make sure that all paths defined point to existing locations in your filesystem.
 
