@@ -1,0 +1,2 @@
+export PATH="${PATH:+$PATH:}/home/josep/gurobi801/linux64/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/home/josep/gurobi801/linux64/lib:/usr/local/lib:/home/josep/repos/alignment_model_text"

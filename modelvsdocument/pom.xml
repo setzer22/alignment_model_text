@@ -1,11 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>edu.upc</groupId>
-        <artifactId>nlp4bpm</artifactId>
-        <version>0.1.0</version>
-    </parent>
 	<groupId>edu.upc</groupId>
 	<artifactId>modelvsdocument</artifactId>
 	<name>modelvsdocument</name>
@@ -125,7 +120,7 @@
                         <namespace>edu.upc.modelvsdocument.*</namespace>
                         <namespace>edu.upc.modelvsdocument.exec</namespace>
                     </namespaces>
-                    <warnOnReflection>true</warnOnReflection>
+                    <warnOnReflection>false</warnOnReflection>
 				</configuration>
                 <executions>
                     <execution>
@@ -202,19 +197,9 @@
       <version>0.1.0</version>
     </dependency>
     <dependency>
-      <groupId>edu.upc</groupId>
-      <artifactId>atdlib</artifactId>
-      <version>0.1.0</version>
-    </dependency>
-    <dependency>
         <groupId>inspector-jay</groupId>
         <artifactId>inspector-jay</artifactId>
         <version>0.3</version>
-    </dependency>
-    <dependency>
-        <groupId>edu.stanford.nlp</groupId>
-        <artifactId>tregex</artifactId>
-        <version>3.8.0</version>
     </dependency>
     <dependency>
       <groupId>net.mikera</groupId>
@@ -222,6 +207,7 @@
       <version>0.52.2</version> 
     </dependency>
     <!-- VU DEPENDENVCIES: -->
+    <!--
     <dependency>
       <groupId>nl.vu</groupId>
       <artifactId>similaritycomputation</artifactId>
@@ -252,13 +238,8 @@
       <artifactId>ws4j</artifactId>
       <version>1.0.1</version>
     </dependency>
+    -->
     <!-- VU DEPENDENVCIES END -->
-    <dependency>
-      <groupId>at.ac.ubik</groupId>
-      <artifactId>libplg</artifactId>
-      <version>2.0.5</version>
-      <scope>provided</scope>
-    </dependency>
     <dependency>
       <groupId>org.deckfour</groupId>
       <artifactId>xes</artifactId>
