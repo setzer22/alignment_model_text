@@ -36,7 +36,7 @@ mkdir $HOME/BPMN/tmp
 # Install jars in local maven repository
 # --------------------------------------
 
-/bin/bash/ install-local-jars.sh
+/bin/bash install-local-jars.sh
 
 # -----------------
 # Build the project
