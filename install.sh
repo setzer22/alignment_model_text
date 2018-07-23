@@ -32,9 +32,6 @@ mkdir $HOME/BPMN
 cp -r grammars $HOME/BPMN
 mkdir $HOME/BPMN/tmp
 
-
-exit 0
-
 # --------------------------------------
 # Install jars in local maven repository
 # --------------------------------------
