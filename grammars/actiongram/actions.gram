@@ -1,0 +1,110 @@
+
+
+%% double actions
+double-action ==> action, +and, action
+                | action, +and, noun-action
+                | noun-action, +and, action
+                | noun-action, +and, noun-action.
+
+%% actions described with a verb (send bill to customer, write invoice, ...)
+action ==> +action, other.
+
+action ==> +verb-phrase
+         | +verb-phrase, noun-phrase
+         | +verb-phrase, noun-phrase, vb-prep-phrase
+         | +verb-phrase, vb-prep-phrase
+         | +verb-phrase, n-prep-phrase
+         | +verb-phrase, vb-prep-phrase, vb-prep-phrase
+         | +verb-phrase, noun-phrase, infinitive.
+
+other ==> RB
+        | Fpa, +noun-phrase, Fpt.
+
+
+%% actions described with an action noun (invoice generation, customer registration, ...)
+noun-action ==> +noun-action-phrase
+              | +noun-action-phrase, n-prep-phrase.
+
+%% verb phrases (send, check, take down, set up, ....)
+verb-phrase ==> VB
+              | +VB, particle.
+particle ==> RP | IN(over).  %% RP(down) | RP(up) | RP(over), RP(out).
+
+%% infinitive phrase
+infinitive ==> TO, +VB
+             | TO, +VB, RB
+             | TO, +VB, noun-phrase
+             | IN(to), +VB
+             | IN(to), +VB, RB
+             | IN(to), +VB, noun-phrase.
+
+%% noun phrases (mailed document response, meal, employee, collection agency, ...)
+noun-phrase ==> DT, +nouns
+              | PRP
+              | nouns
+              | noun-phrase, +and, noun-phrase
+              | noun-phrase, +CC(or), noun-phrase.
+
+and ==> CC(and) | Fz(&).
+
+nouns ==> NN*
+        | NP*
+        | JJ*
+        | gerund
+        | JJ*, +nouns
+        | DT, +nouns
+        | gerund, +nouns
+        | VBD, +nouns
+        | VBN, +nouns
+        | +NN*, gerund
+        | +NN*, Z
+        | NN*, +nouns
+        | +NN*, n-prep-phrase
+        | NP*, +nouns
+        | NN*, POS, +nouns
+        | NP*, POS, +nouns.
+
+%% action noun phrases (data transmission, filled document validation, Receipt P&E fee payment, ...)
+noun-action-phrase ==> DT, +act-nouns
+                     | DT, +act-nouns, n-prep-phrase
+                     | act-nouns
+                     | +act-nouns, n-prep-phrase.
+
+act-nouns ==> NN*<"actions.dat">
+        | JJ, +act-nouns
+        | gerund, nouns, +act-nouns
+        | DT, +act-nouns
+        | VBD, +act-nouns
+        | VBN, +act-nouns
+        | NN*, +act-nouns
+        | NP*, +act-nouns
+        | NN*, POS, +act-nouns
+        | NP*, POS, +act-nouns.
+
+gerund ==> VBG
+         | VBN
+         | +VBG, noun-phrase
+         | +VBN, vb-prep-phrase.
+
+%% prepositional phrase that likely goes with a verb ([send] to customer, [receive] from bank, [inform] about results, ...)
+vb-prep-phrase ==> +IN(to), noun-phrase
+                 | +TO(to), noun-phrase
+                 | +IN(from), noun-phrase
+                 | +IN(in), noun-phrase
+                 | +IN(into), noun-phrase
+                 | +IN(about), noun-phrase
+                 | +IN(with), noun-phrase
+                 | +IN(as), noun-phrase
+                 | +IN(by), noun-phrase.
+
+%% prepositional phrase that likely goes with a noun ([assignment] of the MSPN, [significance] of the customer, [report] for customer, ...)
+n-prep-phrase ==>  +IN(of), noun-phrase
+                 | +IN(for), noun-phrase
+                 | +IN(at), noun-phrase.
+
+
+@START top.
+@FLAT nouns act-nouns action.
+@HIDDEN particle nouns act-nouns gerund and.
+
+@PRIOR noun-action double-action action.
