@@ -43,7 +43,7 @@ public class StandaloneMain {
                                                                                        // to avoid running FreeLing twice for the same file
 
         // Wordnet dictionaries
-        read_wordnet.invoke("/home/josep/Repositories/NLP4BPM_project/modelvsdocument/wordnet/"); // The path where the wordnet senses30.src
+        read_wordnet.invoke(System.getProperty("user.home") + "/repos/alignment_model_text/modelvsdocument/wordnet"); // The path where the wordnet senses30.src
                                                                                                   // and wn30.src files are located.
 
         // Misc. configuration parameters
@@ -94,21 +94,33 @@ public class StandaloneMain {
     }
 
     public static void main(String[] args) {
-        if (args.length < 3) {
-            System.err.println("Usage:  standalonemain <model-path> <text-path> <groundtruth-path>");
+        if (!((args[0].equals("execution") && args.length == 3) || (args[0].equals("evaluation") && args.length == 4))) {
+            System.err.println("Usage:  \n\tstandalonemain execution <model-path> <text-path>\n\tstandalonemain evaluation <model-path> <text-path> <groundtruth-path>");
         } else {
-            File modelFile = new File(args[0]);
-            File textFile = new File(args[1]);
-            File groundtruthFile = new File(args[2]);
-            init();
-            Result result = computeAlignment(modelFile, textFile);
-            Object groundtruthAlignment = parseGroundtruth(groundtruthFile);
-            Object comparison = compareAlignments(groundtruthAlignment, result);
+	    if (args[0].equals("evaluation")) {
+                File modelFile = new File(args[1]);
+                File textFile = new File(args[2]);
+                File groundtruthFile = new File(args[3]);
+                init();
+                Result result = computeAlignment(modelFile, textFile);
+                Object groundtruthAlignment = parseGroundtruth(groundtruthFile);
+                Object comparison = compareAlignments(groundtruthAlignment, result);
 
-            IFn pprint = Clojure.var("clojure.pprint", "pprint");
-            pprint.invoke(comparison);
+                IFn pprint = Clojure.var("clojure.pprint", "pprint");
+                pprint.invoke(comparison);
 
-            System.exit(0);
+                System.exit(0);
+            }
+	    else if (args[0].equals("execution")) {
+                File modelFile = new File(args[1]);
+                File textFile = new File(args[2]);
+                init();
+                Result result = computeAlignment(modelFile, textFile);
+                System.out.println(result.getLog());
+
+                System.exit(0);
+
+            }
         }
     }
 

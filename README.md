@@ -39,7 +39,7 @@ make -j4 # NOTE: Replace 4 with the number of threads in your machine
 sudo make install 
 ```
 
-If a non-default install directory was chosen during installation (using -DCMAKE\_INSTALL\_PREFIX), it will need to be specified in ModelVsDocument's config as described later in this document. 
+If a non-default install directory was chosen during installation (using -DCMAKE\_INSTALL\_PREFIX), it will need to be specified in the project's configuration as described later in this document. 
 
 Once the install process is complete, two files located at `$FREELING_REPOSITORY/build/APIs/java` must be moved. Place the Jfreeling.jar file in the `local-jars` folder of this repository and the `libjfreeling.so` at the root of the repository.
 
@@ -57,17 +57,17 @@ cd /gurobi/extract/path/linux64/bin
 
 ```
 
-## Step 3. Application Install
+## Step 4. Install the Application
 
 After all the installation prerequisites are met, you can configure the necessary variables in the `install.sh` script to point to your gurobi and FreeLing installations. Additionally, if FreeLing was installed to a non-default location, the right environment variable must also be set at the top of the install-freeling-json-conf.sh file. These scripts are located on the project root folder.
 
 The `install.sh` script will perform the steps of installation process. The script has been tested on Ubuntu 16.04 LTS and should work on all Linux distributions. If your user doesn't have permission to write to the FreeLing's installation folder (this happens by default), you will need to run the `install.sh` script with privileges (e.g. `sudo`). 
 
-Once the script completes, you have successfully built ModelVsDocument.
+Once the script completes, you have successfully built the project.
 
-## Step 4. Configuration
+## Step 5. Configure the Application
 
-The main entry point of ModelVsDocument is the StandaloneMain class located at `./modelvsdocument/src/main/java/edu/upc/modelvsdocument/StandaloneMain.java`. There are some configuration options that can must set in-code to change the behaviour of the tool. Please make sure that all paths defined point to existing locations in your filesystem.
+The main entry point of this project is the StandaloneMain class located at `./modelvsdocument/src/main/java/edu/upc/modelvsdocument/StandaloneMain.java`. There are some configuration options that can must set in-code to change the behaviour of the tool. Please make sure that all paths defined point to existing locations in your filesystem.
 
 # Running the software
 
