@@ -71,7 +71,7 @@ The main entry point of ModelVsDocument is the StandaloneMain class located at `
 
 # Running the software
 
-The software supports two running modes, *execution* and *evaluation*. In execution mode, the program will receive a BPMN XML file and a text file, and will output a log with a detailed explanation of the computed alignment. In evalutaion mode, a third file in .json format must be provided. This file is the groundtruth file that will be used for comparing the alignment tool's results. The json format is described in the complementary dataset available at [https://www.cs.upc.edu/~pads-upc/ModelTextAlignmentDatasets.zip].
+The software supports two running modes, *execution* and *evaluation*. In execution mode, the program will receive a BPMN XML file and a text file, and will output a log with a detailed explanation of the computed alignment. In evalutaion mode, a third file in .json format must be provided. This file is the groundtruth file that will be used for comparing the alignment tool's results. The json format is described in the complementary dataset available at the datasets folder of this repository.
 
 To run the tool in execution model, execute the following commands:
 
